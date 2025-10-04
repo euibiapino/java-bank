@@ -11,12 +11,12 @@ import static br.com.dio.model.BankService.INVESTMENT;
 @Getter
 public class InvestmentWallet extends Wallet{
 
-    private final Investment investiment;
+    private final Investment investment;
     private final AccountWallet account;
 
     public InvestmentWallet(Investment investiment, AccountWallet account, final long amount) {
         super(INVESTMENT);
-        this.investiment = investiment;
+        this.investment = investiment;
         this.account = account;
         addMoney(account.reduceMoney(amount), getService(), "investimento");
     }
@@ -31,7 +31,7 @@ public class InvestmentWallet extends Wallet{
     @Override
     public String toString() {
         return super.toString() + "InvestmentWallet{" +
-                "investiment=" + investiment +
+                "investiment=" + investment +
                 ", account=" + account +
                 '}';
     }
