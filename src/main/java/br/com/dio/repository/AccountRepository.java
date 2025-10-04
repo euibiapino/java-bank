@@ -1,6 +1,6 @@
 package br.com.dio.repository;
 
-import br.com.dio.exception.AccountNotFaoundException;
+import br.com.dio.exception.AccountNotFoundException;
 import br.com.dio.exception.PixInUseException;
 import br.com.dio.model.AccountWallet;
 
@@ -48,7 +48,7 @@ public class AccountRepository {
         return accounts.stream()
                 .filter(a -> a.getPix().contains(pix))
                 .findFirst()
-                .orElseThrow(() -> new AccountNotFaoundException("A conta com a chave pix '" + pix + "' não existe ou foi encerrada."));
+                .orElseThrow(() -> new AccountNotFoundException("A conta com a chave pix '" + pix + "' não existe ou foi encerrada."));
     }
 
     public List<AccountWallet> list(){
